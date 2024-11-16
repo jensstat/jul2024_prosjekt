@@ -31,25 +31,7 @@
   updateCountdown(); // Initial update
 </script>
 
-<div class="relative w-screen h-screen overflow-hidden">
-  <!-- Christmas Countdown -->
-  <div 
-    class="
-      absolute top-5 right-5 
-      flex flex-col items-center
-      rounded-full shadow-lg p-4 z-30
-    "
-  >
-    <!-- Countdown Title -->
-    <div class="text-white text-lg md:text-xl font-timer drop-shadow-lg">
-      Dager til jul:
-    </div>
-    <!-- Countdown Number -->
-    <div class="text-white text-2xl md:text-4xl font-timer drop-shadow-lg">
-      {time_left_days}
-    </div>
-  </div>
-
+<div class="relative w-screen overflow-hidden">
   <!-- Video as background -->
   <video autoplay muted loop playsinline class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover z-0">
     <source src="/videos/fireplace.mp4" type="video/mp4">
@@ -60,16 +42,41 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70 z-10"></div>
 
   <!-- Content over video -->
-  <div class="flex w-screen h-screen items-center justify-center flex-col relative z-20">
+  <div class="flex w-screen items-center justify-center flex-col relative z-20">
     <!-- Wrapper for header and grid, with vertical space distribution -->
-    <div class="flex flex-col items-center justify-center gap-20 h-full py-20 z-20">
+    <div class="flex flex-col items-center justify-center gap-10 lg:gap-20 h-full py-10 lg:py-20 z-20">
       <!-- Centered Header -->
-      <h1 class="text-white font-holiday text-5xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg">
+      <h1 class="text-white font-holiday text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide drop-shadow-lg">
         🎅 Julekalender 2024 🎄
       </h1>
+
+      <!-- Countdown Timer -->
+      <div 
+        class="
+          flex flex-col items-center gap-2 bg-gradient-to-br 
+          p-3 rounded-full shadow-lg z-30
+          lg:absolute lg:top-5 lg:right-5 lg:static lg:mt-0 mt-5
+          
+        "
+      >
+        <!-- Countdown Title -->
+        <div class="text-white text-2xl lg:text-2xl font-timer drop-shadow-lg ">
+          Dager til jul:
+        </div>
+        <!-- Countdown Number -->
+        <div class="text-white text-4xl lg:text-3xl font-timer drop-shadow-lg">
+          {time_left_days}
+        </div>
+      </div>
     
       <!-- Grid of cards -->
-      <div class="flex w-9/12 h-auto justify-center flex-wrap gap-4 items-center">
+      <div 
+        class="
+          grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6
+          gap-2 sm:gap-4 lg:gap-6
+          w-full max-w-screen-lg px-4
+        "
+      >
         {#each Array(24) as _, index}
           <Card day={index} 
               isFlipped={flippedStates[index]} 

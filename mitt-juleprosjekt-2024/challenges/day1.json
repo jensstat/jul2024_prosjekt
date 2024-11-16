@@ -1,0 +1,7 @@
+{
+    "day": 1,
+    "instructions": "Write a function that returns the nth Fibonacci number. Find the 10th Fibonacci number.",
+    "hint": "The Fibonacci sequence starts with 0, 1, 1, 2, 3...",
+    "expectedAnswer": 55
+  }
+  
